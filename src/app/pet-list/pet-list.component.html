@@ -1,0 +1,9 @@
+<button routerLink="add">Add Pet</button>
+<h3>Here is a list of all pets:</h3>
+<ul *ngIf="pets">
+  <li *ngFor="let pet of pets">
+    <a routerLink="{{ pet.id }}">{{ pet.name }}</a>
+    <button (click)="onDelete(pet.id)">Delete</button>
+  </li>
+</ul>
+<h4 *ngIf="!pets">Loading...</h4>

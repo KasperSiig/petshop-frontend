@@ -1,27 +1,34 @@
 import { Injectable } from '@angular/core';
 import {Pet} from '../models/Pet';
+import {HttpClient} from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PetService {
 
-  pets: Pet[];
+  constructor(private http: HttpClient) {}
 
-  constructor() {
-    this.pets = [
-      {id: 1, name: 'Hans', type: 'Dog', birthDate: '20/01/1990',
-        soldDate: '20/01/1991', color: 'blue', previousOwner: 'Keld', price: 100},
-      {id: 2, name: 'Hans', type: 'Dog', birthDate: '20/01/1990',
-        soldDate: '20/01/1991', color: 'blue', previousOwner: 'Keld', price: 100},
-      {id: 3, name: 'Hans', type: 'Dog', birthDate: '20/01/1990',
-        soldDate: '20/01/1991', color: 'blue', previousOwner: 'Keld', price: 100},
-      {id: 4, name: 'Hans', type: 'Dog', birthDate: '20/01/1990',
-        soldDate: '20/01/1991', color: 'blue', previousOwner: 'Keld', price: 100}
-    ];
+  getAll(): Observable<Pet[]> {
+    return this.http.get<Pet[]>(environment.apiUrl + '/api/pets');
   }
 
-  getPets(): Pet[] {
-    return this.pets;
+  getById(id: number): Observable<Pet> {
+    return this.http.get<Pet>(environment.apiUrl + '/api/pets/' + id);
+  }
+
+  deleteById(id: number): Observable<any> {
+    return this.http.delete(environment.apiUrl + '/api/pets/' + id);
+  }
+
+  add(pet: Pet): Observable<any> {
+    return this.http.post(environment.apiUrl + '/api/pets', pet);
+  }
+
+  update(pet: Pet): Observable<any> {
+    console.log(pet);
+    return this.http.put(environment.apiUrl + '/api/pets/' + pet.id, pet);
   }
 }

@@ -1,3 +1,9 @@
 <p>
   welcome works!
 </p>
+<p *ngIf="loggedIn">
+  <button (click)="onLogout()">Log out</button>
+</p>
+<p *ngIf="!loggedIn">
+  <button routerLink="/login">Log in</button>
+</p>

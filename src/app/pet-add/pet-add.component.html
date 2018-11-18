@@ -1,0 +1,23 @@
+<button (click)="onBack()">Back</button>
+<form [formGroup]="petForm" (ngSubmit)="onSave()">
+  Name:
+  <input type="text" formControlName="name"><br>
+  Type:
+  <input type="text" formControlName="type"><br>
+  Color:
+  <input type="text" formControlName="color"><br>
+  Birthdate:
+  <input type="text" formControlName="birthdate"><br>
+  Sold Date:
+  <input type="text" formControlName="soldDate"><br>
+  Previous Owner:
+  <hr>
+  <form [formGroup]="ownerForm">
+    ID:
+    <input type="number" formControlName="id">
+  </form>
+  <hr>
+  Price:
+  <input type="text" formControlName="price"><br>
+  <button type="submit">Save</button>
+</form>
