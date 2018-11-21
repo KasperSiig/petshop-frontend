@@ -12,19 +12,19 @@ export class PetService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Pet[]> {
-    return this.http.get<Pet[]>(environment.apiUrl + '/api/pets');
+    return this.http.get<Pet[]>(environment.apiUrl + '/pets');
   }
 
   getById(id: number): Observable<Pet> {
-    return this.http.get<Pet>(environment.apiUrl + '/api/pets/' + id);
+    return this.http.get<Pet>(environment.apiUrl + '/pets/' + id);
   }
 
   deleteById(id: number): Observable<any> {
-    return this.http.delete(environment.apiUrl + '/api/pets/' + id);
+    return this.http.delete(environment.apiUrl + '/pets/' + id);
   }
 
   add(pet: Pet): Observable<any> {
-    return this.http.post(environment.apiUrl + '/api/pets', pet);
+    return this.http.post(environment.apiUrl + '/pets', pet);
   }
 
   update(pet: Pet): Observable<any> {

@@ -12,6 +12,18 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { OwnerPipe } from './shared/pipes/owner.pipe';
 import {LoginComponent} from './login/login.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {
+  MatCardModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatProgressSpinnerModule,
+  MatToolbarModule
+} from '@angular/material';
+import { NoComponent } from './no/no.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +34,23 @@ import {LoginComponent} from './login/login.component';
     PetDetailsComponent,
     PetAddComponent,
     OwnerPipe,
-    LoginComponent
+    LoginComponent,
+    NoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

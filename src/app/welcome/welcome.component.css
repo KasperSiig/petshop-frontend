@@ -1,0 +1,9 @@
+.div_login button {
+  width: 200px;
+  border: 1px solid black;
+}
+
+mat-card {
+  margin: 5px;
+  text-align: center;
+}

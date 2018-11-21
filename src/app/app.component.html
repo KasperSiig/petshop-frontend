@@ -1,2 +1,16 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<div fxFlexFill fxLayout="column">
+  <app-navbar></app-navbar>
+  <div fxLayout="column" fxFlex>
+    <div fxFlex>
+      <div class="router_outlet">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <footer fxLayout="column">
+      <div fxLayout="row">
+        <hr fxFlexFill="100">
+      </div>
+      <p fxFlexAlign="center">Copyright © 2018 Team Turkey</p>
+    </footer>
+  </div>
+</div>

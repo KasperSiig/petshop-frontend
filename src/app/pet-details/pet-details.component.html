@@ -5,8 +5,6 @@
   <h2>Previous Owner: {{ pet.previousOwner | owner}}</h2>
   <h2>Type: {{ pet.type }}</h2>
   <h2>Birthdate: {{ pet.birthdate | date}}</h2>
-  <button (click)="onDelete()">Delete</button>
-  <button routerLink="../edit/{{pet.id}}">Update</button>
 </div>
 <div *ngIf="!pet">
   <h2>Pet not found!</h2>

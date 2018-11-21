@@ -1,8 +1,21 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
-  Username:
-  <input type="text" formControlName="username"><br>
-  Password:
-  <input type="password" formControlName="password"><br>
-  <button type="submit">Login</button>
-  {{ errorMsg }}
-</form>
+<div class="container"
+     fxLayout="column"
+     fxFill>
+  <div fxLayout="column"
+       fxLayoutAlign="center center">
+    <h1>Login</h1>
+    <form (ngSubmit)="onSubmit()"
+          [formGroup]="loginForm"
+          fxLayout="column">
+      <mat-form-field>
+        <input matInput placeholder="Username" formControlName="username">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+      <button mat-raised-button type="submit">Login</button>
+    </form>
+    <h4 style="font-weight: normal">{{ errorMsg }}</h4>
+  </div>
+</div>

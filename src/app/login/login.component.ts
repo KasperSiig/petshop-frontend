@@ -10,6 +10,7 @@ import {AuthenticationService} from '../shared/services/authentication.service';
 })
 export class LoginComponent implements OnInit {
 
+  hide = true;
   errorMsg = '';
 
   loginForm = new FormGroup({
