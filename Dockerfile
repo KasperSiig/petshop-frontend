@@ -1,6 +1,10 @@
-FROM nginx
+FROM nginx:latest
 
-EXPOSE 80
-EXPOSE 443
-WORKDIR /usr/share/nginx/html
-COPY dist/petshop/ .
+## Add the default configuration for Angular app
+COPY default.conf /etc/nginx/conf.d/
+
+## Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
+
+## Copy the dist result
+COPY dist/petshop/ /usr/share/nginx/html
